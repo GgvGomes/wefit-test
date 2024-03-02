@@ -50,14 +50,56 @@ function AddItemList() {
     quinto.textContent = 'Quinto item';
 
     // Add to List
-    itemList.append(quarto);
+    itemList.appendChild(quarto);
     itemList.appendChild(quinto);
+}
+
+const newCards = [
+    '',
+    'https://lh3.googleusercontent.com/lTvOiSc4H8MhE86CEVxMMOye8rqBmhZ_P3fabucwrywrkYVWT-Im09onuSkRkReMTaOfJu9A3kcu12ZU7UaFyzN7bw=s1280-w1280-h800',
+    'https://fastly.picsum.photos/id/22/4434/3729.jpg?hmac=fjZdkSMZJNFgsoDh8Qo5zdA_nSGUAWvKLyyqmEt2xs0',
+    'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/128055969/original/c850efd44900a830ee6b91270c21f89643fe1b4d/write-a-short-summary-report-or-document-in-french.jpg',
+]
+
+
+function ChangeCards() {
+    const sectionCards = document.getElementsByClassName('container p-4')[0].getElementsByClassName('row')[2];
+
+    const cards = sectionCards.getElementsByClassName('col-lg-3');
+
+
+    const newOrderCards = [
+        cards.item(3).getElementsByClassName('card')[0],
+        cards.item(0).getElementsByClassName('card')[0],
+        cards.item(2).getElementsByClassName('card')[0],
+        cards.item(1).getElementsByClassName('card')[0]
+    ];
+
+    // animais, tecnologia, pessoas, natureza
+    // natureza, animais, pessoas, tecnologia
+    for (let i = 0; i < newOrderCards.length; i++) {
+        const oldCard = cards[0];
+
+        const newCard = document.createElement('div');
+        newCard.className = 'col-lg-3 new';
+        newCard.appendChild(newOrderCards[i]);
+
+        if (i === 1) {
+            const btnActive = newCard.getElementsByClassName('btn-primary')[0];
+            btnActive.style.backgroundColor = '#27a844';
+            btnActive.style.borderColor = '#27a844';
+        }
+
+        sectionCards.removeChild(oldCard);
+        sectionCards.append(newCard);
+    }
 }
 
 function init() {
     // ChangeMenu();
     // ChangeHeader();
     // AddItemList();
+    ChangeCards();
 }
 
 init();
