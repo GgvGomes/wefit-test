@@ -18,7 +18,7 @@ function ChangeMenu() {
     }
 }
 
-function ChangeHeader(){
+function ChangeHeader() {
     const header = document.getElementsByClassName('jumbotron')[0];
 
     header.style.backgroundColor = '#6c757d';
@@ -32,9 +32,32 @@ function ChangeHeader(){
     buttonPrimary.style.color = '#fff';
 }
 
+function AddItemList() {
+    const itemList = document.getElementsByClassName('list-group')[0];
+
+    // remove other actives 
+    itemList.getElementsByClassName('active')[0].classList.remove('active');
+    itemList.style.fontWeight = '500';
+
+    // Quarto item
+    const quarto = document.createElement('li');
+    quarto.className = 'list-group-item active';
+    quarto.textContent = 'Quarto item';
+
+    // Quinto item
+    const quinto = document.createElement('li');
+    quinto.className = 'list-group-item';
+    quinto.textContent = 'Quinto item';
+
+    // Add to List
+    itemList.append(quarto);
+    itemList.appendChild(quinto);
+}
+
 function init() {
     // ChangeMenu();
     // ChangeHeader();
+    // AddItemList();
 }
 
 init();
