@@ -4,7 +4,7 @@ function ChangeMenu() {
     groupMenu.style.flexDirection = 'row';
     groupMenu.style.alignItems = 'center';
     groupMenu.style.justifyContent = 'flex-start';
-    groupMenu.style.gap = '12px';
+    groupMenu.style.gap = '4px';
     groupMenu.style.width = '100%';
 
     const buttonsMenu = groupMenu.getElementsByClassName('btn-secondary');
@@ -14,7 +14,6 @@ function ChangeMenu() {
         item.style.borderRadius = '5px';
         item.style.width = 'fit-content';
         item.style.flex = 'none';
-        item.style.padding = '0.375rem 1.2rem';
     }
 }
 
@@ -96,9 +95,9 @@ function ChangeCards() {
 }
 
 function init() {
-    // ChangeMenu();
-    // ChangeHeader();
-    // AddItemList();
+    ChangeMenu();
+    ChangeHeader();
+    AddItemList();
     ChangeCards();
 }
 
